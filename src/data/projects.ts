@@ -46,6 +46,3 @@ export function byCategory(category: Category): Project[] {
   return projects.filter((p) => p.category === category).sort((a, b) => a.order - b.order);
 }
 
-export function allStack(): string[] {
-  return [...new Set(projects.flatMap((p) => p.stack))];
-}

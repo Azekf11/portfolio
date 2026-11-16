@@ -3,11 +3,10 @@ import Base from '../layouts/Base.astro';
 import Header from '../components/Header.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import site from '../data/site.json';
-import { byCategory, allStack } from '../data/projects';
+import { byCategory } from '../data/projects';
 
 const featured = byCategory('featured');
 const learning = byCategory('learning');
-const stack = allStack();
 const year = new Date().getFullYear();
 ---
 
@@ -73,10 +72,10 @@ const year = new Date().getFullYear();
       <div class="wrap">
         <div class="section-head reveal">
           <h2 id="skills-title">Skills</h2>
-          <p>Tools and methods used in the projects above.</p>
+          <p>Tools and methods I use in the projects above.</p>
         </div>
         <ul class="skills reveal">
-          {stack.map((s) => <li>{s}</li>)}
+          {site.skills.map((s) => <li>{s}</li>)}
         </ul>
       </div>
     </section>

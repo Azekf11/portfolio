@@ -36,7 +36,7 @@ Add an object to the `projects` array:
 | `tagline` | yes | Short description. |
 | `status` | no | Leave `""` to hide it. |
 | `highlights` | yes | Can be `[]`. |
-| `stack` | yes | Also feeds the Skills section. |
+| `stack` | yes | Shown on the project card. The Skills section is a separate list, `skills` in `src/data/site.json`. |
 | `links` | yes | Each link opens in a new tab. |
 | `image` | no | File name in `src/assets/projects/`. Leave `""` for a card without an image. |
 | `imageAlt` | if `image` | Describes the screenshot for screen readers. |
