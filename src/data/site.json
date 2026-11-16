@@ -15,12 +15,23 @@
   },
   "skills": [
     "Python",
+    "NumPy",
+    "pandas",
+    "SciPy",
+    "SQL",
     "Bayesian statistics",
     "Monte Carlo",
     "Risk metrics",
-    "Next.js",
+    "Portfolio optimization",
+    "Backtesting",
+    "Data visualization",
     "TypeScript",
+    "Next.js",
+    "FastAPI",
     "Supabase",
-    "FastAPI"
+    "Docker",
+    "Git & GitHub Actions",
+    "Java",
+    "C"
   ]
 }
