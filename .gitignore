@@ -29,3 +29,4 @@ playwright-report/
 
 # local Vercel link
 .vercel
+.env*
