@@ -21,9 +21,6 @@
     "Next.js",
     "TypeScript",
     "Supabase",
-    "pgvector",
-    "Anthropic API",
-    "FastAPI",
-    "LangGraph"
+    "FastAPI"
   ]
 }
