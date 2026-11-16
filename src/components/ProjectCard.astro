@@ -1,0 +1,73 @@
+---
+import { Picture } from 'astro:assets';
+import { projectImage, type Project } from '../data/projects';
+
+interface Props {
+  project: Project;
+  eager?: boolean;
+}
+
+const { project, eager = false } = Astro.props;
+const image = projectImage(project.image);
+const headingId = `project-${project.id}`;
+---
+
+<article class:list={['card', 'reveal', { 'has-media': image }]} aria-labelledby={headingId}>
+  {
+    image && (
+      <div class="media">
+        <Picture
+          src={image}
+          alt={project.imageAlt ?? ''}
+          formats={['avif', 'webp']}
+          widths={[480, 800, 1200]}
+          sizes="(min-width: 56rem) 34rem, 100vw"
+          loading={eager ? 'eager' : 'lazy'}
+          fetchpriority={eager ? 'high' : 'auto'}
+          decoding="async"
+        />
+      </div>
+    )
+  }
+  <div class="body">
+    <div>
+      <h3 id={headingId}>{project.title}</h3>
+      {project.status && <p class="status">{project.status}</p>}
+    </div>
+    <p class="tagline">{project.tagline}</p>
+    {
+      project.highlights.length > 0 && (
+        <ul class="highlights">
+          {project.highlights.map((h) => (
+            <li>{h}</li>
+          ))}
+        </ul>
+      )
+    }
+    <ul class="tags" aria-label="Stack">
+      {project.stack.map((s) => <li>{s}</li>)}
+    </ul>
+    <div class="links">
+      {
+        project.links.map((l) => (
+          <a href={l.url} rel="noopener" target="_blank">
+            {l.label}
+            <span class="arrow" aria-hidden="true">↗</span>
+            <span class="sr-only"> (opens in a new tab)</span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</article>
+
+<style>
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+</style>

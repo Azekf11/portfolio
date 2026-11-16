@@ -1,0 +1,110 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import site from '../data/site.json';
+import { byCategory, allStack } from '../data/projects';
+
+const featured = byCategory('featured');
+const learning = byCategory('learning');
+const stack = allStack();
+const year = new Date().getFullYear();
+---
+
+<Base>
+  <Header />
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap">
+        <p class="eyebrow">Markets · Data · Applied AI</p>
+        <h1 id="hero-title">{site.name}</h1>
+        <p class="role">{site.role}</p>
+        <p class="bio">{site.bio}</p>
+        <p class="langs">Languages: {site.languages.join(', ')}.</p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">See projects</a>
+          <a class="btn" href={site.contact.github} rel="noopener" target="_blank">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.3-.52-1.47.11-3.06 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.06.74.8 1.19 1.83 1.19 3.09 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"></path></svg>
+            GitHub
+          </a>
+          <a class="btn" href={`mailto:${site.contact.email}`}>Email</a>
+          {
+            site.contact.linkedin && (
+              <a class="btn" href={site.contact.linkedin} rel="noopener" target="_blank">
+                LinkedIn
+              </a>
+            )
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 id="projects-title">Featured projects</h2>
+          <p>Each project links to its code. The descriptions and figures come from the repositories themselves.</p>
+        </div>
+        <div class="projects">
+          {featured.map((p) => <ProjectCard project={p} />)}
+        </div>
+      </div>
+    </section>
+
+    {
+      learning.length > 0 && (
+        <section class="section" id="learning" aria-labelledby="learning-title">
+          <div class="wrap">
+            <div class="section-head reveal">
+              <h2 id="learning-title">Learning</h2>
+              <p>Smaller projects, done to learn a tool or a technique.</p>
+            </div>
+            <div class="learning">
+              {learning.map((p) => (
+                <ProjectCard project={p} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )
+    }
+
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 id="skills-title">Skills</h2>
+          <p>Tools and methods used in the projects above.</p>
+        </div>
+        <ul class="skills reveal">
+          {stack.map((s) => <li>{s}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2 id="contact-title">Contact</h2>
+          <p>The quickest way to reach me is by email.</p>
+        </div>
+        <div class="actions reveal">
+          <a class="btn primary" href={`mailto:${site.contact.email}`}>{site.contact.email}</a>
+          <a class="btn" href={site.contact.github} rel="noopener" target="_blank">github.com/Azekf11</a>
+          {
+            site.contact.linkedin && (
+              <a class="btn" href={site.contact.linkedin} rel="noopener" target="_blank">
+                LinkedIn
+              </a>
+            )
+          }
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="wrap">
+      <span>© {year} {site.name}</span>
+      <a href="#main">Back to top ↑</a>
+    </div>
+  </footer>
+</Base>

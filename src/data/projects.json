@@ -1,0 +1,84 @@
+{
+  "projects": [
+    {
+      "id": "pokequant",
+      "title": "PokéQuant",
+      "tagline": "Opening or buying? A reproducible, risk-adjusted comparison of Pokémon TCG booster opening versus buying single cards on the secondary market.",
+      "status": "Working paper, version 3 (November 2026), 14 pages",
+      "highlights": [
+        "Slot-level booster model, Bayesian posteriors on community-measured pull rates and a nested Monte Carlo simulation (200 posterior draws × 20,000 runs).",
+        "Under central costs the break-even booster price is 1.03 to 1.42 USD, against a retail price of 4.49 USD.",
+        "Buying directly is better on the mean, the median and the 5 % CVaR in 35 of 36 comparisons; hypotheses and decision rules were pre-registered."
+      ],
+      "stack": ["Python", "Bayesian statistics", "Monte Carlo", "Risk metrics"],
+      "links": [
+        { "label": "Live demo", "url": "https://azekf11.github.io/PokeQuant/" },
+        { "label": "Paper (PDF)", "url": "https://github.com/Azekf11/PokeQuant/blob/main/research/paper/paper.pdf" },
+        { "label": "DOI", "url": "https://doi.org/10.5281/zenodo.24251050" },
+        { "label": "Code", "url": "https://github.com/Azekf11/PokeQuant" }
+      ],
+      "image": "pokequant-web-demo.png",
+      "imageAlt": "The PokéQuant web demo: choose a set, a scenario and a budget, and compare opening with buying.",
+      "category": "featured",
+      "order": 1
+    },
+    {
+      "id": "rewrity",
+      "title": "Rewrity",
+      "tagline": "A bilingual (English and French) writing editor: paste a text, get targeted edits with a reason for each, and accept or reject them one by one.",
+      "status": "",
+      "highlights": [
+        "Returns edits, never a rewritten text: each edit quotes the original, proposes a replacement and says why.",
+        "Shows edits as the model writes them, so you can stop once the first ones arrive and keep what has come in.",
+        "Reviews by mouse or keyboard, keeps a searchable history, and works in English and French."
+      ],
+      "stack": ["Next.js", "TypeScript", "Supabase", "pgvector", "Anthropic API"],
+      "links": [
+        { "label": "Live demo", "url": "https://rewrity.vercel.app" },
+        { "label": "Code", "url": "https://github.com/Azekf11/IA_Writing" }
+      ],
+      "image": "rewrity-home.png",
+      "imageAlt": "The Rewrity home page.",
+      "category": "featured",
+      "order": 2
+    },
+    {
+      "id": "orbit",
+      "title": "ORBIT",
+      "tagline": "An AI-assisted crypto portfolio platform: language-model agents produce numeric market views, and Black-Litterman turns them into portfolio weights.",
+      "status": "",
+      "highlights": [
+        "The AI never computes an allocation: the optimiser imports nothing from the agent package, and a test pins that absence.",
+        "A deterministic risk guard clips the weights, and every correction is logged with its reason.",
+        "On 31 backtested periods the edge over holding Bitcoin is statistically indistinguishable from chance, and the site says so."
+      ],
+      "stack": ["Python", "FastAPI", "LangGraph", "PyPortfolioOpt", "Next.js", "Supabase"],
+      "links": [
+        { "label": "Live demo", "url": "https://orbit-anhvu-demo.vercel.app" },
+        { "label": "Code", "url": "https://github.com/Azekf11/ORBIT_Project_Clone" }
+      ],
+      "image": "orbit-home.png",
+      "imageAlt": "The ORBIT home page: AI writes the views, mathematics builds the portfolio.",
+      "category": "featured",
+      "order": 3
+    },
+    {
+      "id": "python-fake-job-scraper",
+      "title": "Python job listings scraper",
+      "tagline": "A small web scraper that collects the 100 job listings of the Fake Python Jobs site and saves them to a CSV file.",
+      "status": "",
+      "highlights": [
+        "Collects title, company, location and link for each job.",
+        "Missing fields become empty strings instead of crashing the script."
+      ],
+      "stack": ["Python", "requests", "Beautiful Soup"],
+      "links": [
+        { "label": "Code", "url": "https://github.com/Azekf11/python-fake-job-scraper" }
+      ],
+      "image": "",
+      "imageAlt": "",
+      "category": "learning",
+      "order": 1
+    }
+  ]
+}
