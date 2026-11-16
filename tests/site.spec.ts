@@ -77,6 +77,8 @@ test('every link on the page answers', async ({ request, page }) => {
   expect(hrefs.length).toBeGreaterThan(0);
   for (const href of hrefs) {
     const res = await request.get(href, { maxRedirects: 10, timeout: 30_000 });
+    // LinkedIn answers automated clients with its non-standard status 999.
+    if (new URL(href).hostname.endsWith('linkedin.com') && res.status() === 999) continue;
     expect.soft(res.status(), href).toBeLessThan(400);
   }
 });
